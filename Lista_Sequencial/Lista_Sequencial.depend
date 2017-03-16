@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1489596888 source:/home/a120121/Lista_Sequencial/main.c
+	<stdio.h>
+	<stdlib.h>
+
