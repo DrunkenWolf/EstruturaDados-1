@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "ListaLinearSequencial.c"
 
 int main(){
     /*
@@ -50,6 +51,16 @@ int main(){
     y = NULL; //boa prática
     */
 
-
+    LISTA x;
+    inicializarLista(&x);
+    inserirElementoLista(&x, 10);
+    inserirElementoLista(&x, -4);
+    inserirElementoLista(&x, 3);
+    inserirElementoLista(&x, 5);
+    printf("%i\n", tamanho(x));
+    exibirLista(x);
+    excluirElementoLista(&x, 2);
+    printf("%i\n", tamanho(x));
+    exibirLista(x);
     return 0;
 }
