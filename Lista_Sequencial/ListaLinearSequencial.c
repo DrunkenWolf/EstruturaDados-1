@@ -27,7 +27,7 @@ void exibirLista(LISTA l){
 }
 
 void inserirElementoLista(LISTA *l, TIPOCHAVE item){
-    if (l->numElem < MAX - 1){
+    if (l->numElem <= MAX - 1){
         l->numElem++;
         l->A[l->numElem - 1] = item;
     }
@@ -37,10 +37,19 @@ void excluirElementoLista(LISTA *l, int elemento){
     elemento--;
     if (elemento >= 0 && elemento < l->numElem - 1){
         int c;
-        for (c = elemento; c < l->numElem; c++){
-            printf("LISTA: %i ------- %i\n", l->A[elemento], l->A[elemento + 1]);
-            l->A[elemento] = l->A[elemento];
+        for (c = elemento; c < l->numElem - 1; c++){
+            l->A[c] = l->A[c + 1];
         }
         l->numElem--;
     }
+}
+
+int buscaSequencial(LISTA l, TIPOCHAVE elemento){
+	int c = 0;
+	for (;c < l.numElem; c++){
+		if (l.A[c] == elemento){
+			return c + 1;
+		}
+	}
+	return -1;
 }

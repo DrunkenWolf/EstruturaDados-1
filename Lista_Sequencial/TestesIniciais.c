@@ -50,17 +50,19 @@ int main(){
     free(y); //liberação de memória
     y = NULL; //boa prática
     */
-
+	
     LISTA x;
     inicializarLista(&x);
-    inserirElementoLista(&x, 10);
-    inserirElementoLista(&x, -4);
-    inserirElementoLista(&x, 3);
-    inserirElementoLista(&x, 5);
+	int i = 1;
+    for (;i < 20; i++){
+		inserirElementoLista(&x, i);
+	}
+	inserirElementoLista(&x, 19);
     printf("%i\n", tamanho(x));
     exibirLista(x);
     excluirElementoLista(&x, 2);
     printf("%i\n", tamanho(x));
     exibirLista(x);
+	printf("Posição %i\n", buscaSequencial(x, 19));
     return 0;
 }
