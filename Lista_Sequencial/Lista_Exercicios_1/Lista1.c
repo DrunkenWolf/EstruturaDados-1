@@ -101,149 +101,83 @@ int buscaBinaria(LISTA *l, TIPOCHAVE ch){//Exercício 4-----------------------
     if (l->nroElem == 0){
 		return -1;
 	}
-	if ((l->nroElem == 1) || ((l->nroElem >= 1) && (l->A[0].chave == l->A[l->nroElem - 1].chave))){
-		if (ch == l->A[0].chave){
-			return 0;
-		}
-		return -1;
-	}
 	if (ch == l->A[0].chave){
 		return 0;
 	}
 	if (ch == l->A[l->nroElem - 1].chave){
-		return l->nroElem;
+		return l->nroElem - 1;
 	}
-	if (l->A[0].chave < l->A[l->nroElem - 1].chave){
-		int esq = 0, dir = l->nroElem - 1, meio = -1;
-		if ((ch < l->A[esq].chave) || (ch > l->A[dir].chave)){
-			return -1;
-		}
-		int p, situacao = 0;
-		while(meio != esq){
-			meio = (esq + dir) / 2;
-			if (meio != esq){
-				if (ch == l->A[meio].chave){
-					p = meio + 1;
-					situacao = 1;
-					break;
-				}
+	int esq = 0, dir = l->nroElem - 1, meio = -1, meioAnte = -2, cont = 1;
+	do{
+		meio = (esq + dir) / 2;
+		if (meio != meioAnte){
+			if (ch == l->A[meio].chave){
+				cont = 0;
+			}
+			if (l->A[0].chave < l->A[l->nroElem - 1].chave){
 				if (ch > l->A[meio].chave){
 					esq = meio;
-					meio = -1;
+					meioAnte = meio;
 				} else{
 					dir = meio;
-					meio = -1;
+					meioAnte = meio;
 				}
-			}
-		}
-		if (situacao == 0){
-			return -1;
-		}
-		return p;
-	} else{
-		int esq = 0, dir = l->nroElem - 1, meio = -1;
-		if ((ch > l->A[esq].chave) || (ch < l->A[dir].chave)){
-			return -1;
-		}
-		int p, situacao = 0;
-		while(meio != esq){
-			meio = (esq + dir) / 2;
-			if (meio != esq){
-				if (ch == l->A[meio].chave){
-					p = meio + 1;
-					situacao = 1;
-					break;
-				}
+			} else if (l->A[0].chave > l->A[l->nroElem - 1].chave){
 				if (ch < l->A[meio].chave){
 					esq = meio;
-					meio = -1;
+					meioAnte = meio;
 				} else{
 					dir = meio;
-					meio = -1;
+					meioAnte = meio;
 				}
+			} else{
+				return -2; //indeterminado em linhas gerais
 			}
+		} else{
+			cont = 0;
+			meio = -1;
 		}
-		if (situacao == 0){
-			return -1;
-		}
-		return p;
-	}
+	} while (cont == 1);
+	return meio;
 }
 
-int buscaBinariaRecursiva(LISTA *l, TIPOCHAVE ch, int e, int d){//Exercício 5-----------------------
-    if (l->nroElem == 0){
-		return -1;
-	}
-	if ((l->nroElem == 1) || ((l->nroElem >= 1) && (l->A[0].chave == l->A[l->nroElem - 1].chave))){
-		if (ch == l->A[0].chave){
-			return 0;
-		}
+int buscaBinariaRecursiva(LISTA *l, TIPOCHAVE ch, int e, int d, int mAnt){//Exercício 5-----------------------
+	if (l->nroElem == 0){
 		return -1;
 	}
 	if (ch == l->A[0].chave){
 		return 0;
 	}
 	if (ch == l->A[l->nroElem - 1].chave){
-		return l->nroElem;
+		return l->nroElem - 1;
 	}
-	if (l->A[0].chave < l->A[l->nroElem - 1].chave){
-		int esq = e, dir = d, meio = -1;
-		if ((ch < l->A[esq].chave) || (ch > l->A[dir].chave)){
-			return -1;
-		}
-		int p, situacao = 0;
-		while(meio != esq){
-			meio = (esq + dir) / 2;
-			if (meio != esq){
-				if (ch == l->A[meio].chave){
-					p = meio + 1;
-					situacao = 1;
-					break;
-				}
+	int meio = (e + d) / 2;
+	if (ch != l->A[meio].chave){
+		if (mAnt != meio){
+			if (l->A[0].chave < l->A[l->nroElem - 1].chave){
 				if (ch > l->A[meio].chave){
-					esq = meio;
-					meio = -1;
-					p = buscaBinariaRecursiva(l, ch, esq, dir);
+					e = meio;
+					mAnt = meio;
 				} else{
-					dir = meio;
-					meio = -1;
-					p = buscaBinariaRecursiva(l, ch, esq, dir);
+					d = meio;
+					mAnt = meio;
 				}
-			}
-		}
-		if (situacao == 0){
-			return -1;
-		}
-		return p;
-	} else{
-		int esq = e, dir = d, meio = -1;
-		if ((ch > l->A[esq].chave) || (ch < l->A[dir].chave)){
-			return -1;
-		}
-		int p, situacao = 0;
-		while(meio != esq){
-			meio = (esq + dir) / 2;
-			if (meio != esq){
-				if (ch == l->A[meio].chave){
-					p = meio + 1;
-					situacao = 1;
-					break;
-				}
+				return buscaBinariaRecursiva(l, ch, e, d, mAnt);
+			} else if (l->A[0].chave > l->A[l->nroElem - 1].chave){
 				if (ch < l->A[meio].chave){
-					esq = meio;
-					meio = -1;
-					p = buscaBinariaRecursiva(l, ch, esq, dir);
+					e = meio;
+					mAnt = meio;
 				} else{
-					dir = meio;
-					meio = -1;
-					p = buscaBinariaRecursiva(l, ch, esq, dir);
+					d = meio;
+					mAnt = meio;
 				}
+				return buscaBinariaRecursiva(l, ch, e, d, mAnt);
+			} else{
+				return -2; //indeterminado em linhas gerais
 			}
-		}
-		if (situacao == 0){
+		} else{
 			return -1;
 		}
-		return p;
 	}
 }
 
@@ -266,14 +200,14 @@ int main(){ //Testes no próprio arquivo ------------------------------ descomen
 	r.chave = -1;
 	printf("%i\n", inserirElemListaCrescente(&x, r));
 	r.chave = 9;
-	printf("%i\n", inserirElemListaCrescente(&x, r));
+	printf("%i\n", inserirElemListaCrescente(&x, r)); 
 	printf("Numero Elementos %i\n", x.nroElem);
 	for (; c < x.nroElem; c++){
 		printf("||%i\n", x.A[c].chave);
 	}
 	*/
 	
-	/*----------------------------------- Teste exercicio 3 - parte 2
+	/*----------------------------------- Teste exercicio 3 - parte 2 
 	LISTA x;
 	REGISTRO r;
 	int c = 0;
@@ -298,12 +232,13 @@ int main(){ //Testes no próprio arquivo ------------------------------ descomen
 	
 	/*------------------------------------------------Teste exercicio 4 
 	printf("Elemento da Busca: %i\n", buscaBinaria(&x, 4));
-	printf("Elemento da Busca: %i\n", buscaBinaria(&x, 7));
+	printf("Elemento da Busca: %i\n", buscaBinaria(&x, -1));
 	printf("Elemento da Busca: %i\n", buscaBinaria(&x, 50));
+	printf("Elemento da Busca: %i\n", buscaBinaria(&x, 9));
 	*/
 	
-	/*----------------------------------------------------------------------------- Teste exercicio 5
-	printf("Elemento da Busca Recursiva: %i\n", buscaBinariaRecursiva(&x, 6, 0, x.nroElem));
+	/*----------------------------------------------------------------------------- Teste exercicio 5 
+	printf("Elemento da Busca Recursiva: %i\n", buscaBinariaRecursiva(&x, 9, 0, x.nroElem - 1, -1));
 	*/
 	return 0;	
 }
