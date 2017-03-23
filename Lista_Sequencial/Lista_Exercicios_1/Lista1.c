@@ -14,30 +14,30 @@ typedef struct{
     int nroElem;
 }LISTA;
 
-void exercicio1(){ //------------- Exercício 1 - Solução -------------------------------
-	int *p, *q;  //declaração de dois ponteiros ("p" e "q") de números inteiros (int)
-    p = (int*) malloc (sizeof (int)); //o ponteiro "p" apontará/armazenará o endereço onde 4 bytes (tamanho de um número inteiro "int") de memória serão alocados  através do "malloc"
-   *p = 123; //o valor inteiro "123" será atribuído ao local indicado pelo ponteiro "p", isto é, o número 123 será armazenado no espaço de memória cujo seu endereço consta gravado em "p" 
-    q = (int*) malloc (sizeof (int)); //o ponteiro "q" apontará/armazenará o endereço onde 4 bytes (tamanho de um número inteiro "int") de memória serão alocados através do "malloc"
-   *q = *p; //o valor inteiro armazenado no espaço de memória cujo seu endereço consta gravado em "q" (neste momento iquivalente a 123) será atribuído ao espaço de memória cujo seu endereço consta gravado em "p"
-    q = p; //o valor de referência, ou seja, o endereço armazenado no ponteiro, de "p" será atribuído a "q", logo os dois ponteiros ("p" e "q") armazenarão o mesmo endereço de memória (o endereço gravado em "p")
-    free (p); //operação para liberação do espaço de memória (4 bytes) cujo seu endereço consta gravado em "p"
-    free (q); //operação para liberação do espaço de memória (4 bytes) cujo seu endereço consta gravado em "q", porém "p" e "q" armazenam o mesmo endereço de memória. Portanto, está ação é reduntante, visto que já aplicou-se "free(p)"
-    q = NULL; //atribuí-se valor nulo ("NULL") ao ponteiro "q", isto é, "q" armazenará um endereço nulo e não mais apontará para o endereço contido em "p"
-	//É válido ressaltar que ao final dessa execução o espaço de memória alocado inicialmente em "q = (int*) malloc (sizeof (int));" não é afetado pelo "free()", logo essa memória não é desalocada devidamente causando acúmulo e "lixo"
+void exercicio1(){ //------------- ExercÃ­cio 1 - SoluÃ§Ã£o ------------------------------- 
+	int *p, *q;  //declaraÃ§Ã£o de dois ponteiros ("p" e "q") de nÃºmeros inteiros (int)
+    p = (int*) malloc (sizeof (int)); //o ponteiro "p" apontarÃ¡/armazenarÃ¡ o endereÃ§o onde 4 bytes (tamanho de um nÃºmero inteiro "int") de memÃ³ria serÃ£o alocados  atravÃ©s do "malloc"
+   *p = 123; //o valor inteiro "123" serÃ¡ atribuÃ­do ao local indicado pelo ponteiro "p", isto Ã©, o nÃºmero 123 serÃ¡ armazenado no espaÃ§o de memÃ³ria cujo seu endereÃ§o consta gravado em "p" 
+    q = (int*) malloc (sizeof (int)); //o ponteiro "q" apontarÃ¡/armazenarÃ¡ o endereÃ§o onde 4 bytes (tamanho de um nÃºmero inteiro "int") de memÃ³ria serÃ£o alocados atravÃ©s do "malloc"
+   *q = *p; //o valor inteiro armazenado no espaÃ§o de memÃ³ria cujo seu endereÃ§o consta gravado em "q" (neste momento iquivalente a 123) serÃ¡ atribuÃ­do ao espaÃ§o de memÃ³ria cujo seu endereÃ§o consta gravado em "p"
+    q = p; //o valor de referÃªncia, ou seja, o endereÃ§o armazenado no ponteiro, de "p" serÃ¡ atribuÃ­do a "q", logo os dois ponteiros ("p" e "q") armazenarÃ£o o mesmo endereÃ§o de memÃ³ria (o endereÃ§o gravado em "p")
+    free (p); //operaÃ§Ã£o para liberaÃ§Ã£o do espaÃ§o de memÃ³ria (4 bytes) cujo seu endereÃ§o consta gravado em "p"
+    free (q); //operaÃ§Ã£o para liberaÃ§Ã£o do espaÃ§o de memÃ³ria (4 bytes) cujo seu endereÃ§o consta gravado em "q", porÃ©m "p" e "q" armazenam o mesmo endereÃ§o de memÃ³ria. Portanto, estÃ¡ aÃ§Ã£o Ã© reduntante, visto que jÃ¡ aplicou-se "free(p)"
+    q = NULL; //atribuÃ­-se valor nulo ("NULL") ao ponteiro "q", isto Ã©, "q" armazenarÃ¡ um endereÃ§o nulo e nÃ£o mais apontarÃ¡ para o endereÃ§o contido em "p"
+	//Ã‰ vÃ¡lido ressaltar que ao final dessa execuÃ§Ã£o o espaÃ§o de memÃ³ria alocado inicialmente em "q = (int*) malloc (sizeof (int));" nÃ£o Ã© afetado pelo "free()", logo essa memÃ³ria nÃ£o Ã© desalocada devidamente causando acÃºmulo e "lixo"
 }
 
-/*------------- Exercício 2 - Solução -------------------------------
-	Quando se utiliza o método de busca sequencial comum, utiliza-se um laço de repetição para percorrer toda a lista. Isto é válido para o método de busca sentinela, porém, 
-	na busca comum é necessário verificar a cada loop se o contador encontra-se dentro lo escopo da lista, caso contrário, poderíamos encontrar um erro de leitura/acesso.
-	Já no busca sentinela, o valor que desejamos encontrar é adicionado na última posição da lista e, portanto, sabe-se que o valor será sempre encontrado elimitando, assim,
-	a verificação de escopo da lista. Por tal razão, eliminamos processamento adicional e o algorítmo se torna mais eficiente.
-	O problema de o sentinela ocupar a última posição da lista poderia ser corrigido adicionando uma posição a mais do que o MAX à lista. Desta forma, seria garantido que
-	haverá espaço para o sentinela.
+/*------------- ExercÃ­cio 2 - SoluÃ§Ã£o -------------------------------
+	Quando se utiliza o mÃ©todo de busca sequencial comum, utiliza-se um laÃ§o de repetiÃ§Ã£o para percorrer toda a lista. Isto Ã© vÃ¡lido para o mÃ©todo de busca sentinela, porÃ©m, 
+	na busca comum Ã© necessÃ¡rio verificar a cada loop se o contador encontra-se dentro lo escopo da lista, caso contrÃ¡rio, poderÃ­amos encontrar um erro de leitura/acesso.
+	JÃ¡ no busca sentinela, o valor que desejamos encontrar Ã© adicionado na Ãºltima posiÃ§Ã£o da lista e, portanto, sabe-se que o valor serÃ¡ sempre encontrado elimitando, assim,
+	a verificaÃ§Ã£o de escopo da lista. Por tal razÃ£o, eliminamos processamento adicional e o algorÃ­tmo se torna mais eficiente.
+	O problema de o sentinela ocupar a Ãºltima posiÃ§Ã£o da lista poderia ser corrigido adicionando uma posiÃ§Ã£o a mais do que o MAX Ã  lista. Desta forma, seria garantido que
+	haverÃ¡ espaÃ§o para o sentinela.
 	
 */
 
-int inserirElemListaCrescente(LISTA *l, REGISTRO reg){ //------------Exercício 3 parte 1
+int inserirElemListaCrescente(LISTA *l, REGISTRO reg){ //------------ExercÃ­cio 3 parte 1
    int j = 0;
    if (l->nroElem == MAX){
        return -1;
@@ -67,7 +67,7 @@ int inserirElemListaCrescente(LISTA *l, REGISTRO reg){ //------------Exercício 3
    return 0;
 }
 
-int inserirElemListaDecrescente(LISTA *l, REGISTRO reg){ //------------Exercício 3 parte 2
+int inserirElemListaDecrescente(LISTA *l, REGISTRO reg){ //------------ExercÃ­cio 3 parte 2
    int j = 0;
    if (l->nroElem == MAX){
        return -1;
@@ -97,7 +97,7 @@ int inserirElemListaDecrescente(LISTA *l, REGISTRO reg){ //------------Exercício
    return 0;
 }
 
-int buscaBinaria(LISTA *l, TIPOCHAVE ch){//Exercício 4-----------------------
+int buscaBinaria(LISTA *l, TIPOCHAVE ch){//ExercÃ­cio 4-----------------------
     if (l->nroElem == 0){
 		return -1;
 	}
@@ -170,7 +170,7 @@ int buscaBinaria(LISTA *l, TIPOCHAVE ch){//Exercício 4-----------------------
 	}
 }
 
-int buscaBinariaRecursiva(LISTA *l, TIPOCHAVE ch, int e, int d){//Exercício 5-----------------------
+int buscaBinariaRecursiva(LISTA *l, TIPOCHAVE ch, int e, int d){//ExercÃ­cio 5-----------------------
     if (l->nroElem == 0){
 		return -1;
 	}
@@ -247,7 +247,7 @@ int buscaBinariaRecursiva(LISTA *l, TIPOCHAVE ch, int e, int d){//Exercício 5---
 	}
 }
 
-int main(){ //Testes no próprio arquivo ------------------------------ descomente as seções de teste que deseja utilizar
+int main(){ //Testes no prÃ³prio arquivo ------------------------------ descomente as seÃ§Ãµes de teste que deseja utilizar
 	//exercicio1();
 	
 	/*----------------------------------- Teste exercicio 3 - parte 1 
