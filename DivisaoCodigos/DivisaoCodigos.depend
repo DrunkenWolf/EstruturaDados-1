@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1491237520 source:/home/a120121/Área de Trabalho/EstruturaDados/DivisaoCodigos/main.c
+	"Lista_estatica.h"
+
+1491238188 /home/a120121/Área de Trabalho/EstruturaDados/DivisaoCodigos/Lista_estatica.h
+
+1491238175 /home/a120121/Área de Trabalho/EstruturaDados/DivisaoCodigos/Lista_estatica.c
+	<stdio.h>
+	<stdlib.h>
+
