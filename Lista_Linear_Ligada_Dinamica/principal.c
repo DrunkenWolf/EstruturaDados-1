@@ -1,4 +1,4 @@
-#include "LinearDinamica.h"
+#include "LinearDinamica.c"
 
 int main(){
     
