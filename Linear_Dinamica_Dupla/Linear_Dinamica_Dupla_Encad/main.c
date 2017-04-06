@@ -1,15 +1,29 @@
-#include "Dinamica_Dupla.c"
+#include "Dinamica_Dupla.h"
 
 int main(){
     LISTA x;
+    REGISTRO reg;
+
     inicializarLista(&x);
     exibirLista(&x);
-    REGISTRO reg;
+
     reg.chave = 2;
-    int a=inserirElemListaOrd(&x, reg);
-    printf("%d\n", a);
+    inserirElemListaOrd(&x, reg);
     exibirLista(&x);
+
     reg.chave = 3;
+    inserirElemListaOrd(&x, reg);
+    exibirLista(&x);
+
+    reg.chave = 4;
+    inserirElemListaOrd(&x, reg);
+    exibirLista(&x);
+
+    reg.chave = 5;
+    inserirElemListaOrd(&x, reg);
+    exibirLista(&x);
+
+    reg.chave = 1;
     inserirElemListaOrd(&x, reg);
     exibirLista(&x);
     return 0;

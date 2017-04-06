@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1491435259 source:/media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Linear_Dinamica_Dupla/Linear_Dinamica_Dupla_Encad/Dinamica_Dupla.c
+	"Dinamica_Dupla.h"
+	<stdio.h>
+	<stdlib.h>
+
+1491430316 /media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Linear_Dinamica_Dupla/Linear_Dinamica_Dupla_Encad/Dinamica_Dupla.h
+
+1491434885 source:/media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Linear_Dinamica_Dupla/Linear_Dinamica_Dupla_Encad/main.c
+	"Dinamica_Dupla.h"
+

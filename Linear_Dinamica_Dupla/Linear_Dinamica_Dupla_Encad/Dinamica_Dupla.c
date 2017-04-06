@@ -1,23 +1,7 @@
-//#include "Dinamica_Dupla.h"
+#include "Dinamica_Dupla.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef int TIPOCHAVE;
-
-typedef struct {
-    TIPOCHAVE chave;
-} REGISTRO;
-
-typedef struct aux {
-    REGISTRO reg;
-    struct aux *prox, *ant;
-} ELEMENTO;
-
-typedef ELEMENTO *PONT;
-
-typedef struct {
-    PONT inicio, fim;
-} LISTA;
 
 void inicializarLista(LISTA *l) {
     l->inicio = l->fim = NULL;
@@ -25,9 +9,8 @@ void inicializarLista(LISTA *l) {
 
 int tamanhoLista(LISTA *l) {
     PONT atual = l->inicio;
-    PONT f = l->fim;
     int tam = 0;
-    while (atual != f) {
+    while (atual != NULL) {
         tam++;
         atual = atual->prox;
     }
@@ -60,21 +43,23 @@ int inserirElemListaOrd(LISTA *l, REGISTRO reg) {
     PONT ant, i;
     if (buscaSequencial(l, ch) == NULL){
         PONT pos = l->inicio;
+        PONT a = NULL;
         i = (PONT) malloc(sizeof (ELEMENTO));
         i->reg = reg;
         while (pos != NULL && pos->reg.chave < ch) {
+            a = pos;
             pos = pos->prox;
         }
-        if (pos == NULL) {
-            i->prox = NULL;
-            i->ant = NULL;
-            l->inicio = pos;
-            l->fim = pos;
+        if (tamanhoLista(l) == 0) {
+            l->inicio = l->fim = i;
+            i->ant = i->prox = NULL;
         } else{
-            i->prox = pos->prox;
-            pos->ant = i;
-            i->ant = pos;
-            pos->prox = i;
+            if (a->prox == NULL){
+                i->ant = a;
+                i->prox = a->prox;
+                a->prox = i;
+                l->fim = i;
+            }
         }
         return 0;
     }
