@@ -4,10 +4,14 @@
 	<stdio.h>
 	<stdlib.h>
 
+1491587403 
+
 1491430316 /media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Linear_Dinamica_Dupla/Linear_Dinamica_Dupla_Encad/Dinamica_Dupla.h
 
 1491434885 source:/media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Linear_Dinamica_Dupla/Linear_Dinamica_Dupla_Encad/main.c
 	"Dinamica_Dupla.h"
+
+1491586661 Dupla.h"
 
 1491587395 source:r:\github\estruturadados\linear_dinamica_dupla\linear_dinamica_dupla_encad\dinamica_dupla.c
 	"Dinamica_Dupla.h"
@@ -17,5 +21,15 @@
 	<stdlib.h>
 
 1491586661 source:r:\github\estruturadados\linear_dinamica_dupla\linear_dinamica_dupla_encad\main.c
+	"Dinamica_Dupla.h"
+
+1491879739 source:/media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Linear_Dinamica_Dupla/Linear_Dinamica_Dupla_Encad/Dinamica_Dupla.c
+	"Dinamica_Dupla.h"
+	<stdio.h>
+	<stdlib.h>
+
+1491879736 /media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Linear_Dinamica_Dupla/Linear_Dinamica_Dupla_Encad/Dinamica_Dupla.h
+
+1491587890 source:/media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Linear_Dinamica_Dupla/Linear_Dinamica_Dupla_Encad/main.c
 	"Dinamica_Dupla.h"
 

@@ -1,4 +1,6 @@
 #include "Dinamica_Dupla.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 void inicializarLista(LISTA *l)
 {

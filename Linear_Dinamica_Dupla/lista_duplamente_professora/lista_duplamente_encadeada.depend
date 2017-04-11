@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1491849247 source:c:\users\jfber\desktop\2017_aulas\estrutura de dados\lista_duplamente_encadeada\duplamente.c
+	"duplamente.h"
+	<stdio.h>
+	<stdlib.h>
+
+1491849247 
+
+1491849424 c:\users\jfber\desktop\2017_aulas\estrutura de dados\lista_duplamente_encadeada\duplamente.h
+
+1491849725 source:c:\users\jfber\desktop\2017_aulas\estrutura de dados\lista_duplamente_encadeada\main.c
+	"duplamente.h"
+
+1491849725 e.h"
+
+1491849247 source:/media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Linear_Dinamica_Dupla/lista_duplamente_professora/duplamente.c
+	"duplamente.h"
+	<stdio.h>
+	<stdlib.h>
+
+1491879611 /media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Linear_Dinamica_Dupla/lista_duplamente_professora/duplamente.h
+	<stdio.h>
+	<stdlib.h>
+
+1491849725 source:/media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Linear_Dinamica_Dupla/lista_duplamente_professora/main.c
+	"duplamente.h"
+
