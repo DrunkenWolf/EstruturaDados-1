@@ -25,7 +25,9 @@ void inicializaLista(LISTA *l);
 int tamanho(LISTA *l);
 void exibirLista(LISTA *l);
 PONT buscaSentinela(LISTA *l, TIPOCHAVE ch);
-int inserirElemListaOrd(LISTA *l, REGISTRO reg);
+PONT buscaSentinelaOrd(LISTA *l, TIPOCHAVE ch);
+PONT buscaSeqExec(LISTA *l, TIPOCHAVE ch, PONT *ant);
+int inserirElemLista(LISTA *l, REGISTRO reg);
 int excluirElemLista(LISTA *l, TIPOCHAVE ch);
 void reinicializarLista(LISTA *l);
 

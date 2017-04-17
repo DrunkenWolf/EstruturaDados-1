@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1492400380 source:r:\github\estruturadados\lista_circular\circularligadadinamica\circulardinamica.c
+	"CircularDinamica.h"
+	<stdio.h>
+	<stdlib.h>
+
+1492400317 r:\github\estruturadados\lista_circular\circularligadadinamica\circulardinamica.h
+
+1492400425 source:r:\github\estruturadados\lista_circular\circularligadadinamica\main.c
+	"CircularDinamica.h"
+	<stdio.h>
+	<stdlib.h>
+

@@ -4,6 +4,8 @@
 
 int main()
 {
-    printf("Hello world!\n");
+    LISTA x;
+    inicializaLista(&x);
+    exibirLista(&x);
     return 0;
 }
