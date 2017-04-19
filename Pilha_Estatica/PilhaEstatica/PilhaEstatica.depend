@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1492622800 source:c:\users\a120121\desktop\estruradados\pilha_estatica\pilhaestatica\main.c
+	"PilhaEstatica.h"
+
+1492623071 c:\users\a120121\desktop\estruradados\pilha_estatica\pilhaestatica\pilhaestatica.h
+
+1492622507 source:c:\users\a120121\desktop\estruradados\pilha_estatica\pilhaestatica\pilhaestatica.c
+	"PilhaEstatica.h"
+	<stdio.h>
+	<stdlib.h>
+
