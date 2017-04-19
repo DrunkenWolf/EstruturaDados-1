@@ -14,13 +14,17 @@ int main(){
     inserirElemPilha(&x, reg);
     exibirPilha(&x);
 
-    excluirElemPilha(&x);
-    exibirPilha(&x);
+    printf("%i\n", tamanho(&x));
 
     excluirElemPilha(&x);
     exibirPilha(&x);
 
     excluirElemPilha(&x);
     exibirPilha(&x);
+
+    excluirElemPilha(&x);
+    exibirPilha(&x);
+
+    printf("%i\n", tamanho(&x));
     return 0;
 }
