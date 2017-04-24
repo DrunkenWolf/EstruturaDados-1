@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1492964232 source:/media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Implementacao_Propria_Estudo/ListaLinearLigadaEstatica/main.c
+	"LinearEstatica.h"
+
+1492904238 /media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Implementacao_Propria_Estudo/ListaLinearLigadaEstatica/LinearEstatica.h
+	<stdio.h>
+	<stdlib.h>
+
+1492964349 source:/media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Implementacao_Propria_Estudo/ListaLinearLigadaEstatica/LinearEstatica.c
+	"LinearEstatica.h"
+

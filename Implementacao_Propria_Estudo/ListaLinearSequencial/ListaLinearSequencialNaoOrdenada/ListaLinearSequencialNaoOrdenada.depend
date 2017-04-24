@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1492873337 source:/media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Implementacao_Propria_Estudo/ListaLinearSequencial/ListaLinearSequencialNaoOrdenada/main.c
+	"SequencialNaoOrdenada.h"
+
+1492872979 /media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Implementacao_Propria_Estudo/ListaLinearSequencial/ListaLinearSequencialNaoOrdenada/SequencialNaoOrdenada.h
+	<stdio.h>
+	<stdlib.h>
+
+1492874666 source:/media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Implementacao_Propria_Estudo/ListaLinearSequencial/ListaLinearSequencialNaoOrdenada/SequencialNaoOrdenada.c
+	"SequencialNaoOrdenada.h"
+

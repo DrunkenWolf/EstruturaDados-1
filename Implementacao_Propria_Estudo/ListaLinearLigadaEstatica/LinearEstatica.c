@@ -1,0 +1,52 @@
+#include "LinearEstatica.h"
+
+void inicializarLista(LISTA *l){
+    int c;
+    l->inicio = -1;
+    l->dispo = 0;
+    for (c = 0; c < MAX - 1; c++){
+        l->elementos[c].prox = c + 1;
+    }
+    l->elementos[MAX - 1].prox = -1;
+}
+
+int tamanhoLista(LISTA *l){
+    int tam = 0;
+    int atual = l->inicio;
+    while (atual != -1){
+        tam++;
+        atual = l->elementos[atual].prox;
+    }
+    return tam;
+}
+
+void exibirLista(LISTA *l){
+    int atual = l->inicio;
+    printf("LISTA: ");
+    while (atual != -1){
+        printf(" %d", l->elementos[atual].reg.chave);
+        atual = l->elementos[atual].prox;
+    }
+    printf("\n");
+}
+
+int buscaSequencial(LISTA *l, int ch){
+    int atual = l->inicio;
+    while (atual != -1 && l->elementos[atual].reg.chave != ch){
+        atual = l->elementos[atual].prox;
+    }
+    return atual;
+}
+
+int inserirElemLista(LISTA *l, REGISTRO reg){
+    int pos = l->dispo;
+    if (buscaSequencial(l, reg.chave) != -1 || pos == -1){
+        return -1;
+    }
+    l->dispo = l->elementos[pos].prox;
+    l->elementos[pos].prox = l->inicio;
+    l->inicio = pos;
+    l->elementos[pos].reg = reg;
+    return 0;
+}
+
