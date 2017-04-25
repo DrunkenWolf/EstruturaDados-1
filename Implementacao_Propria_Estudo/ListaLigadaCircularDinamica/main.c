@@ -1,4 +1,4 @@
-#include "LinearEstatica.h"
+#include "LinearCircular.h"
 
 int main()
 {
@@ -11,15 +11,11 @@ int main()
     inserirElemListaOrd(&x, reg);
     exibirLista(&x);
 
-    reg.chave = 1;
-    inserirElemListaOrd(&x, reg);
-    exibirLista(&x);
-
-    reg.chave = 0;
-    inserirElemListaOrd(&x, reg);
-    exibirLista(&x);
-
     reg.chave = 4;
+    inserirElemListaOrd(&x, reg);
+    exibirLista(&x);
+
+    reg.chave = 1;
     inserirElemListaOrd(&x, reg);
     exibirLista(&x);
 
@@ -27,10 +23,7 @@ int main()
     inserirElemListaOrd(&x, reg);
     exibirLista(&x);
 
-    excluirElemListaOrd(&x, 0);
-    exibirLista(&x);
-
-    excluirElemListaOrd(&x, 3);
+    excluirElemListaOrd(&x, 4);
     exibirLista(&x);
     return 0;
 }

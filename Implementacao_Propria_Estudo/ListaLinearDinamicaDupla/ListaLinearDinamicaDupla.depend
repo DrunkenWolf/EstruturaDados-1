@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1493099925 source:/media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Implementacao_Propria_Estudo/ListaLinearDinamicaDupla/LinearDinamica.c
+	"LinearDinamica.h"
+
+1493098364 /media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Implementacao_Propria_Estudo/ListaLinearDinamicaDupla/LinearDinamica.h
+	<stdio.h>
+	<stdlib.h>
+
+1493099878 source:/media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Implementacao_Propria_Estudo/ListaLinearDinamicaDupla/main.c
+	"LinearDinamica.h"
+
