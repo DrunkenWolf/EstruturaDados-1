@@ -1,55 +1,68 @@
 #include "LinearCircular.h"
 
 void inicializarLista(LISTA *l){
-    l->inicio = NULL;
+    l->cabeca = (PONT) malloc(sizeof(ELEMENTO));
+    l->cabeca->prox = l->cabeca;
 }
 
 void tamanhoLista(LISTA *l){
     int tam = 0;
-    PONT atual = l->inicio;
-    while (atual != NULL){
-        atual = atual->prox;
+    PONT atual = l->cabeca->prox;
+    while (atual != l->cabeca){ //não há NULL, ele finaliza na cabeça
         tam++;
+        atual = atual->prox;
     }
     return tam;
 }
 
 void exibirLista(LISTA *l){
-    PONT atual = l->inicio;
+    PONT atual = l->cabeca->prox;
     printf("LISTA: ");
-    while (atual != NULL){
+    while (atual != l->cabeca){
         printf(" %d", atual->reg.chave);
         atual = atual->prox;
     }
     printf("\n");
 }
 
-PONT buscaSequencialOrd(LISTA *l, int ch){
-    PONT atual = l->inicio;
-    while (atual != NULL && atual->reg.chave < ch){
+PONT buscaSentinela(LISTA *l, int ch){
+    PONT atual = l->cabeca->prox;
+    l->cabeca->reg.chave = ch;
+    while (l->cabeca->reg.chave != ch){
         atual = atual->prox;
     }
-    if (atual != NULL && atual->reg.chave == ch){
+    if (atual == l->cabeca){
+        return NULL;
+    }
+    return atual;
+}
+
+PONT buscaSequencialOrd(LISTA *l, int ch){
+    PONT atual = l->cabeca->prox;
+    while (atual != l->cabeca && atual->reg.chave < ch){
+        atual = atual->prox;
+    }
+    if (atual != l->cabeca && atual->reg.chave == ch){
         return atual;
     }
     return NULL;
 }
 
 int inserirElemListaOrd(LISTA *l, REGISTRO reg){
-    PONT atual = l->inicio;
+    PONT atual = l->cabeca->prox;
     PONT ant = NULL;
-    while(atual != NULL && atual->reg.chave < reg.chave){
+    while (atual != l->cabeca && atual->reg.chave < reg.chave){
         ant = atual;
         atual = atual->prox;
     }
-    if (atual != NULL && atual->reg.chave == reg.chave){
+    if (atual != l->cabeca && atual->reg.chave == reg.chave){
         return -1;
     }
     atual = (PONT) malloc(sizeof(ELEMENTO));
     atual->reg = reg;
     if (ant == NULL){
-        atual->prox = l->inicio;
-        l->inicio = atual;
+        atual->prox = l->cabeca->prox;
+        l->cabeca->prox = atual;
     } else{
         atual->prox = ant->prox;
         ant->prox = atual;
@@ -58,17 +71,17 @@ int inserirElemListaOrd(LISTA *l, REGISTRO reg){
 }
 
 int excluirElemListaOrd(LISTA *l, int ch){
-    PONT atual = l->inicio;
+    PONT atual = l->cabeca->prox;
     PONT ant = NULL;
-    while (atual != NULL && atual->reg.chave < ch){
+    while (atual != l->cabeca && atual->reg.chave < ch){
         ant = atual;
         atual = atual->prox;
     }
-    if (atual == NULL || atual->reg.chave != ch){
+    if (atual == l->cabeca || atual->reg.chave != ch){
         return -1;
     }
     if (ant == NULL){
-        l->inicio = atual->prox;
+        l->cabeca->prox = atual->prox;
     } else{
         ant->prox = atual->prox;
     }
@@ -77,11 +90,11 @@ int excluirElemListaOrd(LISTA *l, int ch){
 }
 
 void reinicializarLista(LISTA *l){
-    PONT atual = l->inicio;
-    while (atual != NULL){
+    PONT atual = l->cabeca;
+    while (atual != l->cabeca){
         PONT apagar = atual;
         atual = atual->prox;
         free(apagar);
     }
-    l->inicio = NULL;
+    l->cabeca->prox= l->cabeca;
 }

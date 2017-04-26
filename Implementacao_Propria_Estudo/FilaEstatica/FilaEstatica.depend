@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1493205455 source:/media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Implementacao_Propria_Estudo/FilaEstatica/main.c
+	"FilaEstatica.h"
+
+1493205508 /media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Implementacao_Propria_Estudo/FilaEstatica/FilaEstatica.h
+	<stdio.h>
+	<stdlib.h>
+

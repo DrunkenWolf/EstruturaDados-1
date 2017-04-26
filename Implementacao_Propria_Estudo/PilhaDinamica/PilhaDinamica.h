@@ -1,5 +1,5 @@
-#ifndef LINEARCIRCULAR_H_INCLUDED
-#define LINEARCIRCULAR_H_INCLUDED
+#ifndef PILHADINAMICA_H_INCLUDED
+#define PILHADINAMICA_H_INCLUDED
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,9 +16,9 @@ typedef struct aux{
 typedef ELEMENTO* PONT;
 
 typedef struct{
-    PONT cabeca;
-} LISTA;
+    PONT topo;
+} PILHA;
 
 
 
-#endif // LINEARCIRCULAR_H_INCLUDED
+#endif // PILHADINAMICA_H_INCLUDED

@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1493176766 source:/media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Implementacao_Propria_Estudo/ListaLigadaCircularDinamica/LinearCircular.c
+	"LinearCircular.h"
+
+1493174298 /media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Implementacao_Propria_Estudo/ListaLigadaCircularDinamica/LinearCircular.h
+	<stdio.h>
+	<stdlib.h>
+
+1493100353 source:/media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Implementacao_Propria_Estudo/ListaLigadaCircularDinamica/main.c
+	"LinearCircular.h"
+

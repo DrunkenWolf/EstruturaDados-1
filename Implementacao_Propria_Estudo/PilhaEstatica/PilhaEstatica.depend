@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1493178942 source:/media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Implementacao_Propria_Estudo/PilhaEstatica/main.c
+	"PilhaEstatica.h"
+
+1493178072 /media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Implementacao_Propria_Estudo/PilhaEstatica/PilhaEstatica.h
+	<stdio.h>
+	<stdlib.h>
+
+1493178864 source:/media/rafael/Dados Compartilhados/GitHub/EstruturaDados/Implementacao_Propria_Estudo/PilhaEstatica/PilhaEstatica.c
+	"PilhaEstatica.h"
+
