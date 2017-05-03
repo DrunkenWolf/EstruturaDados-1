@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1493832336 source:c:\users\a120121\desktop\estruturadados\implementacao_prova\exercicio_3\linearestatica.c
+	"LinearEstatica.h"
+
+1493830661 c:\users\a120121\desktop\estruturadados\implementacao_prova\exercicio_3\linearestatica.h
+	<stdio.h>
+	<stdlib.h>
+
+1493832400 source:c:\users\a120121\desktop\estruturadados\implementacao_prova\exercicio_3\main.c
+	"LinearEstatica.h"
+

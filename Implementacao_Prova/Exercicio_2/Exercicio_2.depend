@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1493830400 source:c:\users\a120121\desktop\estruturadados\implementacao_prova\exercicio_2\linearcircular.c
+	"LinearCircular.h"
+
+1493829934 c:\users\a120121\desktop\estruturadados\implementacao_prova\exercicio_2\linearcircular.h
+	<stdio.h>
+	<stdlib.h>
+
+1493830246 source:c:\users\a120121\desktop\estruturadados\implementacao_prova\exercicio_2\main.c
+	"LinearCircular.h"
+

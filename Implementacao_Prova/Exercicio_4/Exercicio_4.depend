@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1493834195 source:c:\users\a120121\desktop\estruturadados\implementacao_prova\exercicio_4\main.c
+	"PilhaEstatica.h"
+
+1493833339 c:\users\a120121\desktop\estruturadados\implementacao_prova\exercicio_4\pilhaestatica.h
+
+1493834228 source:c:\users\a120121\desktop\estruturadados\implementacao_prova\exercicio_4\pilhaestatica.c
+	"PilhaEstatica.h"
+	<stdio.h>
+	<stdlib.h>
+
