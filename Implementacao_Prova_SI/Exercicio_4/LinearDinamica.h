@@ -4,18 +4,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct{
-    int chave;
+typedef int TIPOCHAVE;
+
+typedef struct {
+    TIPOCHAVE chave;
 } REGISTRO;
 
-typedef struct aux{
+typedef struct aux {
     REGISTRO reg;
     struct aux *prox;
-}ELEMENTO;
+} ELEMENTO;
 
-typedef ELEMENTO* PONT;
+typedef ELEMENTO *PONT;
 
-typedef struct{
+typedef struct {
     PONT inicio;
 } LISTA;
 

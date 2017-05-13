@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1494697309 source:r:\github\estruturadados\implementacao_prova_si\exercicio_4\main.c
+	"LinearDinamica.h"
+
+1494697210 r:\github\estruturadados\implementacao_prova_si\exercicio_4\lineardinamica.h
+	<stdio.h>
+	<stdlib.h>
+
+1494697264 source:r:\github\estruturadados\implementacao_prova_si\exercicio_4\lineardinamica.c
+	"LinearDinamica.h"
+
+1491363293 source:r:\github\estruturadados\implementacao_prova_si\exercicio_4\lineardinamicaprof.c
+	<stdio.h>
+	<stdlib.h>
+
+1494696437 r:\github\estruturadados\implementacao_prova_si\exercicio_4\lineardinamica.c
+	"LinearDinamica.h"
+
