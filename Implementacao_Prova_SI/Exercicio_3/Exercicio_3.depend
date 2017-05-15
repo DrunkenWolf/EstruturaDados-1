@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1494872498 source:/home/a120121/Área de Trabalho/EstruturaDados/Implementacao_Prova_SI/Exercicio_3/main.c
+	"SequencialOrdenada.h"
+
+1494871725 /home/a120121/Área de Trabalho/EstruturaDados/Implementacao_Prova_SI/Exercicio_3/SequencialOrdenada.h
+	<stdio.h>
+	<stdlib.h>
+
+1494872332 source:/home/a120121/Área de Trabalho/EstruturaDados/Implementacao_Prova_SI/Exercicio_3/SequencialOrdenada.c
+	"SequencialOrdenada.h"
+

@@ -2,37 +2,32 @@
 
 int main()
 {
-    LISTA x;
+    LISTA x, y;
+    LISTA_FINAL z;
     REGISTRO reg;
 
     inicializarLista(&x);
-
-    exibirLista(&x);
-
+    inicializarLista(&y);
+    inicializarListaFinal(&z);
 
     reg.elemento = 2;
     inserirElemListaOrd(&x, reg);
-    exibirLista(&x);
 
     reg.elemento = 3;
     inserirElemListaOrd(&x, reg);
-    exibirLista(&x);
 
     reg.elemento = 4;
     inserirElemListaOrd(&x, reg);
-    exibirLista(&x);
 
     reg.elemento = 4;
     inserirElemListaOrd(&x, reg);
-    exibirLista(&x);
 
     reg.elemento = 1;
     inserirElemListaOrd(&x, reg);
+
     exibirLista(&x);
 
-    //excluirElemLista(&x, 3);
-    //exibirLista(&x);
-
-    printf("%d\n", buscaBinaria(&x, 4));
+    preencherLista3(&x, &y, &z);
+    exibirListaFinal(&z);
     return 0;
 }

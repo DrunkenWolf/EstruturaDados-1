@@ -15,6 +15,11 @@ typedef struct{
     int numElem;
 } LISTA;
 
+typedef struct{
+    REGISTRO elementos[2 * MAX + 1];
+    int numElem;
+} LISTA_FINAL;
+
 void inicializarLista(LISTA *);
 int tamanhoLista(LISTA *);
 void exibirLista(LISTA *);
