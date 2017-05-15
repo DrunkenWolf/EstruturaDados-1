@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1494871137 source:/home/a120121/Área de Trabalho/EstruturaDados/Fila_Estatica/FilaEstatica/FilaEstatica.c
+	"FilaEstatica.h"
+
+1494870099 /home/a120121/Área de Trabalho/EstruturaDados/Fila_Estatica/FilaEstatica/FilaEstatica.h
+	<stdio.h>
+	<stdlib.h>
+
+1494870977 source:/home/a120121/Área de Trabalho/EstruturaDados/Fila_Estatica/FilaEstatica/main.c
+	"FilaEstatica.h"
+
