@@ -1,12 +1,33 @@
 #include "SequencialOrdenada.h"
 
-void preencherLista3(LISTA *l1, LISTA *l2, LISTA_FINAL *l3){
-    int c;
-    for (c = 0; c < l1->numElem; c++){
-        inserirElemListaOrdFinal(l3, l1->elementos[c]);
-    }
-    for (c = 0; c < l2->numElem; c++){
-        inserirElemListaOrdFinal(l3, l2->elementos[c]);
+void preencherLista3(LISTA *l1, LISTA *l2, LISTA_FINAL *l3){ //exercício 3
+    int c, p1 = 0, p2 = 0;
+    inicializarListaFinal(l3);
+    for (c = 0; c < l1->numElem + l2->numElem; c++){
+        if (p1 != l1->numElem && p2 != l2->numElem){
+            if (l1->elementos[p1].elemento < l2->elementos[p2].elemento){
+                l3->elementos[l3->numElem].elemento = l1->elementos[p1].elemento;
+                p1++;
+                l3->numElem++;
+            } else if (l1->elementos[p1].elemento > l2->elementos[p2].elemento){
+                l3->elementos[l3->numElem].elemento = l2->elementos[p2].elemento;
+                p2++;
+                l3->numElem++;
+            } else{
+                l3->elementos[l3->numElem].elemento = l1->elementos[p1].elemento;
+                p1++;
+                p2++;
+                l3->numElem++;
+            }
+        } else if (p1 == l1->numElem && p2 != l2->numElem){
+            l3->elementos[l3->numElem].elemento = l2->elementos[p2].elemento;
+            p2++;
+            l3->numElem++;
+        } else if (p1 != l1->numElem && p2 == l2->numElem){
+            l3->elementos[l3->numElem].elemento = l1->elementos[p1].elemento;
+            p1++;
+            l3->numElem++;
+        }
     }
 }
 
@@ -81,22 +102,6 @@ int buscaSequencialOrdFinal(LISTA_FINAL *l, int elem){
         }
     }
     return -1;
-}
-
-int inserirElemListaOrdFinal(LISTA_FINAL *l, REGISTRO reg){
-    int c = l->numElem;
-    if (c == 2 * MAX){
-        return -1;
-    }
-    while (c > 0 && l->elementos[c - 1].elemento > reg.elemento){
-        l->elementos[c] = l->elementos[c - 1];
-        c--;
-    }
-    if (l->elementos[c].elemento != reg.elemento){
-        l->elementos[c] = reg;
-        l->numElem++;
-    }
-    return 0;
 }
 
 int excluirElemLista(LISTA *l, int elem){

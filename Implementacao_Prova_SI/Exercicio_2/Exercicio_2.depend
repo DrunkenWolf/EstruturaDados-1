@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1494643268 source:r:\github\estruturadados\implementacao_prova_si\exercicio_2\dinamica_dupla.c
+	"Dinamica_Dupla.h"
+	<stdio.h>
+	<stdlib.h>
+
+1494643289 r:\github\estruturadados\implementacao_prova_si\exercicio_2\dinamica_dupla.h
+
+1494643323 source:r:\github\estruturadados\implementacao_prova_si\exercicio_2\main.c
+	"Dinamica_Dupla.h"
+

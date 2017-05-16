@@ -47,7 +47,8 @@ int main()
 
     exibirLista(&y);
 
-    preencherLista3(&x, &y, &z);
+    preencherLista3(&x, &y, &z); //exercício 3
+
     exibirListaFinal(&z);
     return 0;
 }
