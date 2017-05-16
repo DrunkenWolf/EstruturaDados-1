@@ -19,13 +19,33 @@ int main()
     reg.elemento = 4;
     inserirElemListaOrd(&x, reg);
 
-    reg.elemento = 4;
+    reg.elemento = 5;
     inserirElemListaOrd(&x, reg);
 
     reg.elemento = 1;
     inserirElemListaOrd(&x, reg);
 
+    reg.elemento = 10;
+    inserirElemListaOrd(&x, reg);
+
     exibirLista(&x);
+
+    reg.elemento = 7;
+    inserirElemListaOrd(&y, reg);
+
+    reg.elemento = 0;
+    inserirElemListaOrd(&y, reg);
+
+    reg.elemento = 4;
+    inserirElemListaOrd(&y, reg);
+
+    reg.elemento = 8;
+    inserirElemListaOrd(&y, reg);
+
+    reg.elemento = 9;
+    inserirElemListaOrd(&y, reg);
+
+    exibirLista(&y);
 
     preencherLista3(&x, &y, &z);
     exibirListaFinal(&z);

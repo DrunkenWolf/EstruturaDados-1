@@ -55,16 +55,18 @@ int buscaSequencialOrd(LISTA *l, int elem){
 }
 
 int inserirElemListaOrd(LISTA *l, REGISTRO reg){
-    int c = l->numElem - 1;
-    if (l->numElem == MAX || buscaSequencialOrd(l, reg.elemento) != -1){
+    int c = l->numElem;
+    if (c == MAX){
         return -1;
     }
-    while (l->elementos[c].elemento > reg.elemento){
-        l->elementos[c + 1] = l->elementos[c];
+    while (c > 0 && l->elementos[c - 1].elemento > reg.elemento){
+        l->elementos[c] = l->elementos[c - 1];
         c--;
     }
-    l->elementos[c + 1] = reg;
-    l->numElem++;
+    if (l->elementos[c].elemento != reg.elemento){
+        l->elementos[c] = reg;
+        l->numElem++;
+    }
     return 0;
 }
 
@@ -82,16 +84,18 @@ int buscaSequencialOrdFinal(LISTA_FINAL *l, int elem){
 }
 
 int inserirElemListaOrdFinal(LISTA_FINAL *l, REGISTRO reg){
-    int c = l->numElem - 1;
-    if (l->numElem == 2 * MAX || buscaSequencialOrdFinal(l, reg.elemento) != -1){
+    int c = l->numElem;
+    if (c == 2 * MAX){
         return -1;
     }
-    while (l->elementos[c].elemento > reg.elemento){
-        l->elementos[c + 1] = l->elementos[c];
+    while (c > 0 && l->elementos[c - 1].elemento > reg.elemento){
+        l->elementos[c] = l->elementos[c - 1];
         c--;
     }
-    l->elementos[c + 1] = reg;
-    l->numElem++;
+    if (l->elementos[c].elemento != reg.elemento){
+        l->elementos[c] = reg;
+        l->numElem++;
+    }
     return 0;
 }
 
