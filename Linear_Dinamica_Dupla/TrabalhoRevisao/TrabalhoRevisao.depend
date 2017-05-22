@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1495474052 source:/home/a120121/Área de Trabalho/EstruturaDados/Linear_Dinamica_Dupla/TrabalhoRevisao/Dinamica_Dupla.c
+	"Dinamica_Dupla.h"
+	<stdio.h>
+	<stdlib.h>
+
+1495474113 /home/a120121/Área de Trabalho/EstruturaDados/Linear_Dinamica_Dupla/TrabalhoRevisao/Dinamica_Dupla.h
+
+1495474150 source:/home/a120121/Área de Trabalho/EstruturaDados/Linear_Dinamica_Dupla/TrabalhoRevisao/main.c
+	"Dinamica_Dupla.h"
+
