@@ -19,6 +19,8 @@ int main(){
     inserirElemListaOrd(&l1, reg);
     reg.chave = 1;
     inserirElemListaOrd(&l1, reg);
+    reg.chave = 12;
+    inserirElemListaOrd(&l1, reg);
 
     exibirLista(&l1);
 
@@ -30,6 +32,8 @@ int main(){
     inserirElemListaOrdDecre(&l2, reg);
     reg.chave = 1;
     inserirElemListaOrdDecre(&l2, reg);
+    reg.chave = 3;
+    inserirElemListaOrdDecre(&l2, reg);
 
     exibirLista(&l2);
 
@@ -37,9 +41,13 @@ int main(){
     inserirElemListaOrdDecre(&l3, reg);
     reg.chave = 10;
     inserirElemListaOrdDecre(&l3, reg);
+    reg.chave = 3;
+    inserirElemListaOrdDecre(&l3, reg);
     reg.chave = 7;
     inserirElemListaOrdDecre(&l3, reg);
     reg.chave = 1;
+    inserirElemListaOrdDecre(&l3, reg);
+    reg.chave = 22;
     inserirElemListaOrdDecre(&l3, reg);
 
     exibirLista(&l3);
