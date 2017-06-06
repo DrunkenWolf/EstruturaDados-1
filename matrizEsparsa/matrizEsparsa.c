@@ -42,6 +42,7 @@ void exibirMatriz(MATRIZ *m)
 {
     int c;
     PONT aux;
+    printf("Exibindo Matriz\n");
     for (c = 0; c < m->numLinhas; c++)
     {
         aux = m->ALinha[c];
@@ -55,11 +56,11 @@ void exibirMatriz(MATRIZ *m)
 
 int inserirElemMatriz(MATRIZ *m, int linha, int coluna, int valor)
 {
-    if ((linha <= 0 || linha > m->numLinhas) || (coluna <= 0 || coluna > m->numColunas))
+    if ((linha < 0 || linha >= m->numLinhas) || (coluna < 0 || coluna >= m->numColunas))
     {
         return -1;
     }
-    PONT atual = m->ALinha[linha - 1];
+    PONT atual = m->ALinha[linha];
     PONT anterior = NULL;
     while (atual != NULL && atual->coluna < coluna)
     {
@@ -71,6 +72,119 @@ int inserirElemMatriz(MATRIZ *m, int linha, int coluna, int valor)
         atual->valor = valor;
         return 0;
     }
-    PONT novo = (PONT) malloc(sizeof(ELEMENTO));
+    PONT novo = (PONT)malloc(sizeof(ELEMENTO));
     novo->coluna = coluna;
-    novo
+    novo->linha = linha;
+    novo->valor = valor;
+    if (anterior == NULL)
+    {
+        novo->proxLinha = m->ALinha[linha];
+        m->ALinha[linha] = novo;
+    }
+    else
+    {
+        novo->proxLinha = anterior->proxLinha;
+        anterior->proxLinha = novo;
+    }
+    atual = m->AColuna[coluna];
+    anterior = NULL;
+    while (atual != NULL && atual->linha < linha)
+    {
+        anterior = atual;
+        atual = atual->proxColuna;
+    }
+    if (anterior == NULL)
+    {
+        novo->proxColuna = m->AColuna[coluna];
+        m->AColuna[coluna] = novo;
+    }
+    else
+    {
+        novo->proxColuna = anterior->proxColuna;
+        anterior->proxColuna = novo;
+    }
+    return 0;
+}
+
+int somarMatrizes(MATRIZ *m1, MATRIZ *m2, MATRIZ *result)
+{
+    if (m1->numColunas != m2->numColunas || m1->numLinhas != m2->numLinhas)
+    {
+        return -1;
+    }
+    reinicializarMatriz(result);
+    inicializarMatriz(result, m1->numLinhas, m1->numColunas);
+    int c;
+    for (c = 0; c < m1->numLinhas; c++)
+    {
+        PONT atual = m1->ALinha[c];
+        PONT atualM2 = m2->ALinha[c];
+        while (atual != NULL)
+        {
+            while (atualM2 != NULL && atualM2->coluna < atual->coluna)
+            {
+                atualM2 = atualM2->proxLinha;
+            }
+            if (atualM2 != NULL && atualM2->coluna == atual->coluna)
+            {
+                inserirElemMatriz(result, c, atual->coluna, atual->valor + atualM2->valor);
+            }
+            else
+            {
+                inserirElemMatriz(result, c, atual->coluna, atual->valor);
+            }
+            atual = atual->proxLinha;
+        }
+    }
+    for (c = 0; c < m2->numLinhas; c++)
+    {
+        PONT atual = m2->ALinha[c];
+        PONT atualM2 = m1->ALinha[c];
+        while (atual != NULL)
+        {
+            while (atualM2 != NULL && atualM2->coluna < atual->coluna)
+            {
+                atualM2 = atualM2->proxLinha;
+            }
+            if (atualM2 != NULL && atualM2->coluna == atual->coluna)
+            {
+                inserirElemMatriz(result, c, atual->coluna, atual->valor + atualM2->valor);
+            }
+            else
+            {
+                inserirElemMatriz(result, c, atual->coluna, atual->valor);
+            }
+            atual = atual->proxLinha;
+        }
+    }
+    return 0;
+}
+
+int subtrairMatrizes(MATRIZ *m1, MATRIZ *m2, MATRIZ *result)
+{
+    if (m1->numColunas != m2->numColunas || m1->numLinhas != m2->numLinhas)
+    {
+        return -1;
+    }
+    int c;
+    for (c = 0; c < m2->numLinhas; c++)
+    {
+        PONT atual = m2->ALinha[c];
+        while (atual != NULL)
+        {
+            atual->valor = atual->valor * -1;
+            atual = atual->proxLinha;
+        }
+    }
+    return somarMatrizes(m1, m2, result);
+}
+
+int multiplicarMatrizes(MATRIZ *m1, MATRIZ *m2, MATRIZ *result)
+{
+    if (m1->numColunas != m2->numLinhas)
+    {
+        return -1;
+    }
+    reinicializarMatriz(result);
+    inicializarMatriz(result, m1->numLinhas, m2->numColunas);
+}
