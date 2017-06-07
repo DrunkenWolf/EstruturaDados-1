@@ -187,4 +187,33 @@ int multiplicarMatrizes(MATRIZ *m1, MATRIZ *m2, MATRIZ *result)
     }
     reinicializarMatriz(result);
     inicializarMatriz(result, m1->numLinhas, m2->numColunas);
+    int c;
+    for (c = 0; c < m1->numLinhas; c++)
+    {
+        int i;
+        for (i = 0; i < m2->numColunas; i++)
+        {
+            int valor = 0;
+            PONT atual = m1->ALinha[c];
+            PONT atualM2 = m2->AColuna[i];
+            while (atual != NULL)
+            {
+                while (atualM2 != NULL && atualM2->linha < atual->coluna)
+                {
+                    atualM2 = atualM2->proxColuna;
+                }
+                if (atualM2 != NULL && atualM2->linha == atual->coluna)
+                {
+                    valor += atual->valor * atualM2->valor;
+                }
+                atual = atual->proxLinha;
+                atualM2 = m2->AColuna[i];
+            }
+            if (valor != 0)
+            {
+                inserirElemMatriz(result, c, i, valor);
+            }
+        }
+    }
+    return 0;
 }

@@ -21,7 +21,7 @@ int main()
     exibirMatriz(&M1);
     exibirMatriz(&M2);
 
-    subtrairMatrizes(&M1, &M2, &M3);
+    multiplicarMatrizes(&M1, &M2, &M3);
 
     exibirMatriz(&M3);
     return 0;
