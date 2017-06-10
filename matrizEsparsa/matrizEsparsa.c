@@ -56,7 +56,7 @@ void exibirMatriz(MATRIZ *m)
 
 int inserirElemMatriz(MATRIZ *m, int linha, int coluna, int valor)
 {
-    if ((linha < 0 || linha >= m->numLinhas) || (coluna < 0 || coluna >= m->numColunas))
+    if (linha < 0 || linha >= m->numLinhas || coluna < 0 || coluna >= m->numColunas)
     {
         return -1;
     }
@@ -69,7 +69,42 @@ int inserirElemMatriz(MATRIZ *m, int linha, int coluna, int valor)
     }
     if (atual != NULL && atual->coluna == coluna)
     {
-        atual->valor = valor;
+        if (valor != 0)
+        {
+            atual->valor = valor;
+            return 0;
+        }
+        else
+        {
+            if (anterior == NULL)
+            {
+                m->ALinha[linha] = atual->proxLinha;
+            }
+            else
+            {
+                anterior->proxLinha = atual->proxLinha;
+            }
+            anterior = NULL;
+            atual = m->AColuna[coluna];
+            while (atual != NULL && atual->linha != linha)
+            {
+                anterior = atual;
+                atual = atual->proxColuna;
+            }
+            if (anterior == NULL)
+            {
+                m->AColuna[coluna] = atual->proxColuna;
+            }
+            else
+            {
+                anterior->proxColuna = atual->proxColuna;
+            }
+            free(atual);
+            return 0;
+        }
+    }
+    if (valor == 0)
+    {
         return 0;
     }
     PONT novo = (PONT)malloc(sizeof(ELEMENTO));
