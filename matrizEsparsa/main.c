@@ -4,8 +4,8 @@ int main()
 {
     MATRIZ M1, M2, M3;
 
-    inicializarMatriz(&M1, 300, 1000);
-    inicializarMatriz(&M2, 1000, 300);
+    inicializarMatriz(&M1, 1000, 1000);
+    inicializarMatriz(&M2, 1000, 1000);
     inicializarMatriz(&M3, 1, 1);
 
     inserirElemMatriz(&M1, 0, 0, 1);
