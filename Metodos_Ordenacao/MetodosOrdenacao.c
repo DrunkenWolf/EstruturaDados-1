@@ -39,6 +39,29 @@ void selectionSort(int *v, int n)
     }
 }
 
+void bubbleSort(int *v, int n)
+{
+    int i, j, aux, continua;
+    i = n - 1;
+    do
+    {
+        continua = 0;
+        for (j = 0; j < i; j++)
+        {
+            if (v[j] > v[j + 1])
+            {
+                continua = j;
+                aux = v[j];
+                v[j] = v[j + 1];
+                v[j + 1] = aux;
+                //é possível usar o algoritmo de XOR para substituir o aux
+            }
+        }
+        i--;
+    }
+    while (continua != 0);
+}
+
 int main()
 {
     int x = 0;
@@ -60,7 +83,7 @@ int main()
     else if (x == 1)
     {
         original = fopen("original.txt", "r");
-        
+
         insertionSort(vet, n);
         printf("INSERTION:\n\n");
         for (c = 0; c < n; c++)
