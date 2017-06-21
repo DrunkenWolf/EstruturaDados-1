@@ -41,23 +41,33 @@ void selectionSort(int *v, int n)
 
 int main()
 {
-    FILE *original, *novo;
-    srand(time(NULL));
-    int n = 10;
-    int vet[n];
-    int c;
-    original = fopen("original.txt", "w");
-    for (c = 0; c < n; c++)
+    int x = 0;
+    FILE *arquivo;
+    if (x == 0)
     {
-        vet[c] = rand() % 999 + 1;
-        fprintf(original, " %d", vet[c]);
+        srand(time(NULL));
+        int n = 10;
+        int vet[n];
+        int c;
+        original = fopen("original.txt", "w");
+        fprintf(original, "%d", n);
+        for (c = 0; c < n; c++)
+        {
+            vet[c] = rand() % 999 + 1;
+            fprintf(original, "\n%d", vet[c]);
+        }
     }
-    insertionSort(vet, n);
-    printf("INSERTION:\n\n");
-    for (c = 0; c < n; c++)
+    else if (x == 1)
     {
-        printf("%d ", vet[c]);
+        original = fopen("original.txt", "r");
+        
+        insertionSort(vet, n);
+        printf("INSERTION:\n\n");
+        for (c = 0; c < n; c++)
+        {
+            printf("%d ", vet[c]);
+        }
+        printf("\n");
     }
-    //printf("\n\n%f", difftime(inicial, time()));
     return 0;
 }
