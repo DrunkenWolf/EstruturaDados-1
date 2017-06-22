@@ -64,33 +64,76 @@ void bubbleSort(int *v, int n)
 
 int main()
 {
-    int x = 0;
+    int x;
+    scanf("%d", &x);
+    time_t inicio = time(NULL), fim;
     FILE *arquivo;
     if (x == 0)
     {
         srand(time(NULL));
-        int n = 10;
+        int n;
+        scanf("%d", &n);
         int vet[n];
         int c;
-        original = fopen("original.txt", "w");
-        fprintf(original, "%d", n);
+        arquivo = fopen("original.txt", "w");
+        fprintf(arquivo, "%d", n);
         for (c = 0; c < n; c++)
         {
-            vet[c] = rand() % 999 + 1;
-            fprintf(original, "\n%d", vet[c]);
+            vet[c] = rand() % 100000 + 1;
+            fprintf(arquivo, "\n%d", vet[c]);
         }
     }
     else if (x == 1)
     {
-        original = fopen("original.txt", "r");
-
+        int n;
+        arquivo = fopen("original.txt", "rt");
+        fscanf(arquivo, "%d", &n);
+        printf("%d\n", n);
+        int vet[n];
+        int c;
+        for (c = 0; c < n; c++)
+        {
+            fscanf(arquivo, "%d", &vet[c]);
+        }
         insertionSort(vet, n);
         printf("INSERTION:\n\n");
-        for (c = 0; c < n; c++)
+        /*for (c = 0; c < n; c++)
         {
             printf("%d ", vet[c]);
         }
-        printf("\n");
+        printf("\n");*/
     }
+    else if (x == 2)
+    {
+        int n;
+        arquivo = fopen("original.txt", "rt");
+        fscanf(arquivo, "%d", &n);
+        printf("%d\n", n);
+        int vet[n];
+        int c;
+        for (c = 0; c < n; c++)
+        {
+            fscanf(arquivo, "%d", &vet[c]);
+        }
+        selectionSort(vet, n);
+        printf("SELECTION:\n\n");
+    }
+    else if (x == 3)
+    {
+        int n;
+        arquivo = fopen("original.txt", "rt");
+        fscanf(arquivo, "%d", &n);
+        printf("%d\n", n);
+        int vet[n];
+        int c;
+        for (c = 0; c < n; c++)
+        {
+            fscanf(arquivo, "%d", &vet[c]);
+        }
+        bubbleSort(vet, n);
+        printf("BUBBLE:\n\n");
+    }
+    fim = time(NULL);
+    printf("TEMPO: %f\n", difftime(fim, inicio));
     return 0;
 }
