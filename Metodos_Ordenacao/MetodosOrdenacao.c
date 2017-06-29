@@ -79,7 +79,11 @@ int main()
         fprintf(arquivo, "%d", n);
         for (c = 0; c < n; c++)
         {
-            vet[c] = rand() % 100000 + 1;
+            
+            //srand(time(NULL));
+            int x = rand() % 10000000 + 1;
+            srand(x);
+            vet[c] = rand() % 10000000 + 1;
             fprintf(arquivo, "\n%d", vet[c]);
         }
     }
@@ -97,11 +101,13 @@ int main()
         }
         insertionSort(vet, n);
         printf("INSERTION:\n\n");
-        /*for (c = 0; c < n; c++)
+        int x = 1;
+        for (c = 0; c < n; c++)
         {
-            printf("%d ", vet[c]);
+            printf("%d | %d\n", vet[c], x);
+            x++;
         }
-        printf("\n");*/
+        printf("\n");
     }
     else if (x == 2)
     {
