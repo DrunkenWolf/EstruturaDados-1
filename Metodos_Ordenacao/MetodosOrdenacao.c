@@ -62,6 +62,31 @@ void bubbleSort(int *v, int n)
     while (continua != 0);
 }
 
+void bubbleSortDecrescente(int *v, int n)
+{
+    int i, j, aux, continua;
+    i = n - 1;
+    do
+    {
+        continua = 0;
+        for (j = 0; j < i; j++)
+        {
+            if (v[j] < v[j + 1])
+            {
+                continua = j;
+                aux = v[j];
+                v[j] = v[j + 1];
+                v[j + 1] = aux;
+                //é possível usar o algoritmo de XOR para substituir o aux
+            }
+        }
+        i--;
+    }
+    while (continua != 0);
+}
+
+
+
 int main()
 {
     int x;
@@ -79,11 +104,11 @@ int main()
         fprintf(arquivo, "%d", n);
         for (c = 0; c < n; c++)
         {
-            
+
             //srand(time(NULL));
             int x = rand() % 10000000 + 1;
             srand(x);
-            vet[c] = rand() % 10000000 + 1;
+            vet[c] = rand() % 100 + 1;
             fprintf(arquivo, "\n%d", vet[c]);
         }
     }
@@ -138,6 +163,22 @@ int main()
         }
         bubbleSort(vet, n);
         printf("BUBBLE:\n\n");
+    }
+    else if (x == 4)
+    {
+        int n;
+        arquivo = fopen("original.txt", "rt");
+        fscanf(arquivo, "%d", &n);
+        printf("%d\n", n);
+        int vet[n];
+        int c;
+        for (c = 0; c < n; c++)
+        {
+            fscanf(arquivo, "%d", &vet[c]);
+            printf(" %d", vet[c]);
+        }
+        bubbleSortDecrescente(vet, n);
+        printf("\nBUBBLE:\n\n");
     }
     fim = time(NULL);
     printf("TEMPO: %f\n", difftime(fim, inicio));
