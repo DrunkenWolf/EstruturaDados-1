@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1501610118 source:c:\users\a120121\desktop\estruturadados\recursao\recursividade_trab_8\recursoes.c
+	"Recursoes.h"
+
+1501610143 c:\users\a120121\desktop\estruturadados\recursao\recursividade_trab_8\recursoes.h
+	<stdio.h>
+	<stdlib.h>
+
