@@ -23,7 +23,7 @@ void selectionSort(int *v, int n)
     int i, j, aux, min;
     for (i = 0; i < n - 1; i++) //percorre o vetor de 0 até o penúltimo elemento
     {
-        min = i; // a posição do menor elemento recebe o próprio elemento da posição
+        min = i;                    // a posição do menor elemento recebe o próprio elemento da posição
         for (j = i + 1; j < n; j++) //percorre o vetor do próximo elemento da posição até o final
         {
             if (v[j] < v[min]) //compara o menor elemento atual com as posições do vetor
@@ -58,8 +58,7 @@ void bubbleSort(int *v, int n)
             }
         }
         i--;
-    }
-    while (continua != 0);
+    } while (continua != 0);
 }
 
 void bubbleSortDecrescente(int *v, int n)
@@ -81,11 +80,8 @@ void bubbleSortDecrescente(int *v, int n)
             }
         }
         i--;
-    }
-    while (continua != 0);
+    } while (continua != 0);
 }
-
-
 
 int main()
 {
@@ -108,7 +104,7 @@ int main()
             //srand(time(NULL));
             int x = rand() % 10000000 + 1;
             srand(x);
-            vet[c] = rand() % 100 + 1;
+            vet[c] = rand() % 1000 + 1;
             fprintf(arquivo, "\n%d", vet[c]);
         }
     }
@@ -163,6 +159,12 @@ int main()
         }
         bubbleSort(vet, n);
         printf("BUBBLE:\n\n");
+        FILE *arquivoOrdenado;
+        arquivoOrdenado = fopen("ordenado.txt", "wt");
+        for (c = 0; c < n; c++)
+        {
+            fprintf(arquivoOrdenado, "%d\n", vet[c]);
+        }
     }
     else if (x == 4)
     {
