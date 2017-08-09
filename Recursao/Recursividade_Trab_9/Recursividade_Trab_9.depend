@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1502218052 source:r:\github\estruturadados\recursao\recursividade_trab_9\main.c
+	"Recursoes.h"
+
+1502214612 r:\github\estruturadados\recursao\recursividade_trab_9\recursoes.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+1502276619 source:r:\github\estruturadados\recursao\recursividade_trab_9\recursoes.c
+	"Recursoes.h"
+
