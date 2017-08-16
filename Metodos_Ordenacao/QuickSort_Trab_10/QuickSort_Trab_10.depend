@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1502821901 source:r:\github\estruturadados\metodos_ordenacao\quicksort_trab_10\recursoes.c
+1502844564 source:r:\github\estruturadados\metodos_ordenacao\quicksort_trab_10\recursoes.c
 	"Recursoes.h"
 
-1502820730 r:\github\estruturadados\metodos_ordenacao\quicksort_trab_10\recursoes.h
+1502843063 r:\github\estruturadados\metodos_ordenacao\quicksort_trab_10\recursoes.h
 	<stdio.h>
 	<stdlib.h>
 
-1502822162 source:r:\github\estruturadados\metodos_ordenacao\quicksort_trab_10\main.c
+1502844153 source:r:\github\estruturadados\metodos_ordenacao\quicksort_trab_10\main.c
 	"Recursoes.h"
 

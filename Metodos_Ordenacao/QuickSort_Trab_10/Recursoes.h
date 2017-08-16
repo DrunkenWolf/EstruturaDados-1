@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// funções que integram o QuickSort
+
 void troca(int*, int, int);
 int particao(int*, int, int);
 void quicksort(int*, int, int);

@@ -8,10 +8,10 @@
 
 int main()
 {
-    int x[] = {5, 4, 2, 3, 0, 1};
-    quicksort(&x, 0, 5);
+    int x[] = {5, 4, 2, 3, 0, 1, 6, 7, 10, 9};
+    quicksort(&x, 0, sizeof(x)/sizeof(int) - 1); // chamada do método de ordenação QuickSort (endereço do vetor, início, fim)
     int n;
-    for (n = 0; n < 6; n++)
+    for (n = 0; n < sizeof(x)/sizeof(int); n++)
     {
         printf("%d\n", x[n]);
     }
