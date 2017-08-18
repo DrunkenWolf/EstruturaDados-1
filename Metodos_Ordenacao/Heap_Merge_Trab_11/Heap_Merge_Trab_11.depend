@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1503049375 source:r:\github\estruturadados\metodos_ordenacao\heap_merge_trab_11\main.c
+	"Recursoes.h"
+
+1503049336 r:\github\estruturadados\metodos_ordenacao\heap_merge_trab_11\recursoes.h
+	<stdio.h>
+	<stdlib.h>
+
+1503049184 source:r:\github\estruturadados\metodos_ordenacao\heap_merge_trab_11\recursoes.c
+	"Recursoes.h"
+
