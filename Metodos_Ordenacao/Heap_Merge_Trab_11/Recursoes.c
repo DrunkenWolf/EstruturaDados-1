@@ -44,16 +44,16 @@ void heapSort(int *vet, int n) // função recursiva que realiza a ordenação HeapS
     }
 }
 
-void merge(int *vet, int ini, int fim)
+void merge(int *vet, int ini, int fim) // função que faz a ordenação das partes do vetor e depois as reintegra - MergeSort
 {
     int meio = (ini + fim) / 2;
-    int i1 = 0;
+    int i1 = ini;
     int i2 = ini;
     int i3 = meio + 1;
-    int temp[fim];
-    while (ini < )
+    int temp[11]; // cria vetor auxiliar que receberá os subvetores ordenados
+    while (i2 <= meio && i3 <= fim) // verifica se ainda existem elementos nos subvetores
     {
-        if (vet[i2] < vet[i3])
+        if (vet[i2] <= vet[i3]) // verifica qual é maior elemento, o do subvetor da esquerda ou da direita e o copia para o vetor auxiliar
         {
             temp[i1++] = vet[i2++];
         }
@@ -61,17 +61,28 @@ void merge(int *vet, int ini, int fim)
         {
             temp[i1++] = vet[i3++];
         }
-
+    }
+    while (i2 <= meio) // termina de preencher o subvetor da esquerda
+    {
+        temp[i1++] = vet[i2++];
+    }
+    while (i3 <= fim) // termina de preencher o subvetor da direita
+    {
+        temp[i1++] = vet[i3++];
+    }
+    for (i1 = ini; i1 <= fim; i1++) // realiza a cópia de todo o vetor auxiliar já ordenado para o vetor original
+    {
+        vet[i1] = temp[i1];
     }
 }
 
-void mergeSort(int *vet, int ini, int fim)
+void mergeSort(int *vet, int ini, int fim) // função recursiva que realiza o MergeSort
 {
-    if (ini < fim)
+    if (ini < fim) // enquanto ainda existirem posições no vetor
     {
-        int meio = (ini + fim) / 2;
-        mergeSort(vet, ini, meio);
-        mergeSort(vet, meio + 1, fim);
-        merge(vet, ini, fim);
+        int meio = (ini + fim) / 2; // divide o vetor em outras duas partes (ao meio)
+        mergeSort(vet, ini, meio); // ordena a primeira parte do vetor
+        mergeSort(vet, meio + 1, fim); // ordena a segunda parte do vetor
+        merge(vet, ini, fim); // chama a função realmente de ordenação e reintegração das partes do vetor
     }
 }
