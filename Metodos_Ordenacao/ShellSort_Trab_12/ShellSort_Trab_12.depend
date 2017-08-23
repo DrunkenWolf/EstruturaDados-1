@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1503509072 source:c:\users\a120121\desktop\estruturadados\metodos_ordenacao\shellsort_trab_12\funcoes.c
+	"Funcoes.h"
+
+1503508773 c:\users\a120121\desktop\estruturadados\metodos_ordenacao\shellsort_trab_12\funcoes.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1503509030 source:c:\users\a120121\desktop\estruturadados\metodos_ordenacao\shellsort_trab_12\main.c
+	"Funcoes.h"
+
