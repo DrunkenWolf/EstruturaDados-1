@@ -5,11 +5,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct
+#define TAM 6
+
+typedef struct // estrutura PALAVRA criada para representar cada "string" do vetor (apenas organização)
 {
-    char elemento[50];
+    char *elemento; // cada vetor de char de tamanho dinâmico do vetor
 } PALAVRA;
 
-void ShellSortInteiros(int*, int);
+void ShellSortInteiros(int*, int); // ordenação de inteiros
+void ShellSortPalavras(PALAVRA*, int); // ordenação de "strings"
 
 #endif // FUNCOES_H_INCLUDED
