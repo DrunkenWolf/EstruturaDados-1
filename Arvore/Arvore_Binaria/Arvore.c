@@ -7,7 +7,7 @@ void define(tree t) // "inicializa a árvore como vazia - nó raiz vazio
 
 void cria_raiz(tree t, tipo_elem item) // reserva memória para o nó raiz e configura as definições iniciais da árvore
 {
-    pno no = malloc(sizeof(NO));
+    pno no = malloc(sizeof(no));
     no->esq = NULL;
     no->dir = NULL;
     no->info = item;
@@ -40,12 +40,14 @@ int numeroNos(tree r) // calcula quantos nós uma árvore possui - recursivamente
     return nE + nR + 1; // soma-se a quantidade de nós à direita e esquerda e soma-se 1 para correção de nó NULL = 0
 }
 
-int inserirNo(tree r, tipo_elem item, int direc)
+int inserirNo(tree r, tipo_elem item, int direc) // cria um novo nó no local indicado pelo nó pai e a direcção (o - esquerda, !0 - direita), se não for possível será retornado valor -1
 {
-    pno no = malloc(sizeof(NO));
+    pno no = malloc(sizeof(no)); // aloca e inicializa o novo nó com os padrões iniciais
     no->esq = NULL;
     no->dir = NULL;
-    if (direc == 0)
+    no->info = item;
+    printf("%p %p", &r->esq, &r->dir);
+    if (direc == 0) // se a direção for esquerda e houver espaço disponível para alocação, o nó será inserido
     {
         if (r->esq == NULL)
         {
@@ -56,7 +58,7 @@ int inserirNo(tree r, tipo_elem item, int direc)
             return -1;
         }
     }
-    else
+    else // se a direção for direita e houver espaço disponível para alocação, o nó será inserido
     {
         if (r->dir == NULL)
         {
@@ -68,4 +70,14 @@ int inserirNo(tree r, tipo_elem item, int direc)
         }
     }
     return 0;
+}
+
+void exibirArvore(tree r)
+{
+    if (r != NULL)
+    {
+        printf(" %c\n", r->info);
+        exibirArvore(r->esq);
+        exibirArvore(r->dir);
+    }
 }
