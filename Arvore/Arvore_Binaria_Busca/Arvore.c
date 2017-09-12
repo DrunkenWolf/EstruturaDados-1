@@ -1,17 +1,27 @@
 #include"Arvore.h"
 
-void define(tree t) // "inicializa a árvore como vazia - nó raiz vazio
+void exibirArvore(tree r) // exibe todos os elementos da árvore no padrão: atual, filho à esquerda e filho à direita
 {
-    t = NULL;
+    if (r != NULL)
+    {
+        printf(" %c\n", r->info);
+        exibirArvore(r->esq);
+        exibirArvore(r->dir);
+    }
 }
 
-void cria_raiz(tree t, tipo_elem item) // reserva memória para o nó raiz e configura as definições iniciais da árvore
+void define(tree *t) // "inicializa a árvore como vazia - nó raiz vazio
+{
+    *t = NULL;
+}
+
+void cria_raiz(tree *t, tipo_elem item) // reserva memória para o nó raiz e configura as definições iniciais da árvore
 {
     pno no = malloc(sizeof(NO));
     no->esq = NULL;
     no->dir = NULL;
     no->info = item;
-    t = no;
+    *t = no;
 }
 
 int altura(tree r) // calcula a altura de uma árvore - recursivamente
@@ -60,23 +70,84 @@ pno busca (tree raiz, tipo_elem valor) // busca de um valor na árvore - recursiv
     }
 }
 
-pno busca_insere(tipo_elem x, tree raiz) // realiza a inserção de um elemento na árvore, mas também realiza busca caso o elemento já exista
+pno busca_insere(tipo_elem x, tree *raiz) // realiza a inserção de um elemento na árvore, mas também realiza busca caso o elemento já exista
 {
-    if (raiz == NULL) // se não existir elemento, cria-se e o insere como nessa posição - raiz da árvore ou subárvore
+    tree aux = *raiz;
+    if (*raiz == NULL) // se não existir elemento, cria-se e o insere como nessa posição - raiz da árvore ou subárvore
     {
-        raiz = malloc(sizeof(tree));
-        raiz->info = x;
-        raiz->esq = NULL;
-        raiz->dir = NULL;
-        return raiz;
+        tree i = malloc(sizeof(tree));
+        i->info = x;
+        i->esq = NULL;
+        i->dir = NULL;
+        *raiz = i;
+        return *raiz;
     }
-    if (x < raiz->info) // se o valor for menor, será inserido na subárvore à esquerda
+    if (x < aux->info) // se o valor for menor, será inserido na subárvore à esquerda
     {
-        return busca_insere(x, raiz->esq);
+        return busca_insere(x, &aux->esq);
     }
-    if (x > raiz->info) // se o valor for maior, será inserido na subárvore à direita
+    if (x > aux->info) // se o valor for maior, será inserido na subárvore à direita
     {
-        return busca_insere(x, raiz->dir);
+        return busca_insere(x, &aux->dir);
     }
-    return raiz; // se o elemento a ser inserido já estiver na árvore, apenas retorna-se seu endereço
+    return aux; // se o elemento a ser inserido já estiver na árvore, apenas retorna-se seu endereço
+}
+
+void substituimenoradireita(pno p, pno suc)
+{
+    pno q;
+    if (suc->esq == NULL)
+    {
+        p->info = suc->info;
+        q = suc;
+        suc = suc->dir;
+        free(q);
+    }
+    else
+    {
+        substituimenoradireita(p, suc->esq);
+    }
+}
+
+void removerNo(pno p)
+{
+    pno q;
+    if (p->esq == NULL)
+    {
+        q = p;
+        p = p->dir;
+        free(q);
+    }
+    else if (p->dir == NULL)
+    {
+        q = p;
+        p = p->esq;
+        free(q);
+    }
+    else
+    {
+        substituimenoradireita(p, p->dir);
+    }
+}
+
+int busca_remove(tree *raiz, tipo_elem x)
+{
+    tree aux = *raiz;
+    if (aux == NULL)
+    {
+        return -1;
+    }
+    if (aux->info == x)
+    {
+        removerNo(aux);
+        return 0;
+    }
+    if (aux->info < x)
+    {
+        return busca_remove(&aux->esq, x);
+    }
+    else
+    {
+        return busca_remove(&aux->dir, x);
+    }
 }

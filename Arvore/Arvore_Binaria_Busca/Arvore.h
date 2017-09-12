@@ -19,11 +19,12 @@ typedef pno tree;
 
 // prototipação
 
-void define(tree);
-void cria_raiz(tree, tipo_elem);
+void exibirArvore(tree);
+void define(tree*);
+void cria_raiz(tree*, tipo_elem);
 int altura(tree);
 int numeroNos(tree);
 pno busca (tree, tipo_elem);
-pno busca_insere(tipo_elem, tree);
+pno busca_insere(tipo_elem, tree*);
 
 #endif // ARVORE_H_INCLUDED

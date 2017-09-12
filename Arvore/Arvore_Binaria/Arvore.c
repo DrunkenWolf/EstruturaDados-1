@@ -1,17 +1,17 @@
 #include"Arvore.h"
 
-void define(tree t) // "inicializa a árvore como vazia - nó raiz vazio
+void define(tree *t) // "inicializa a árvore como vazia - nó raiz vazio
 {
-    t = NULL;
+    *t = NULL;
 }
 
-void cria_raiz(tree t, tipo_elem item) // reserva memória para o nó raiz e configura as definições iniciais da árvore
+void cria_raiz(tree *t, tipo_elem item) // reserva memória para o nó raiz e configura as definições iniciais da árvore
 {
     pno no = malloc(sizeof(no));
     no->esq = NULL;
     no->dir = NULL;
     no->info = item;
-    t = no;
+    *t = no;
 }
 
 int altura(tree r) // calcula a altura de uma árvore - recursivamente
@@ -40,18 +40,18 @@ int numeroNos(tree r) // calcula quantos nós uma árvore possui - recursivamente
     return nE + nR + 1; // soma-se a quantidade de nós à direita e esquerda e soma-se 1 para correção de nó NULL = 0
 }
 
-int inserirNo(tree r, tipo_elem item, int direc) // cria um novo nó no local indicado pelo nó pai e a direcção (o - esquerda, !0 - direita), se não for possível será retornado valor -1
+int inserirNo(tree *r, tipo_elem item, int direc) // cria um novo nó no local indicado pelo nó pai e a direcção (o - esquerda, !0 - direita), se não for possível será retornado valor -1
 {
     pno no = malloc(sizeof(no)); // aloca e inicializa o novo nó com os padrões iniciais
     no->esq = NULL;
     no->dir = NULL;
     no->info = item;
-    printf("%p %p", &r->esq, &r->dir);
+    pno aux = *r;
     if (direc == 0) // se a direção for esquerda e houver espaço disponível para alocação, o nó será inserido
     {
-        if (r->esq == NULL)
+        if (aux->esq == NULL)
         {
-            r->esq = no;
+            aux->esq = no;
         }
         else
         {
@@ -60,9 +60,9 @@ int inserirNo(tree r, tipo_elem item, int direc) // cria um novo nó no local ind
     }
     else // se a direção for direita e houver espaço disponível para alocação, o nó será inserido
     {
-        if (r->dir == NULL)
+        if (aux->dir == NULL)
         {
-            r->dir = no;
+            aux->dir = no;
         }
         else
         {
@@ -72,7 +72,7 @@ int inserirNo(tree r, tipo_elem item, int direc) // cria um novo nó no local ind
     return 0;
 }
 
-void exibirArvore(tree r)
+void exibirArvore(tree r) // exibe todos os elementos da árvore no padrão: atual, filho à esquerda e filho à direita
 {
     if (r != NULL)
     {
