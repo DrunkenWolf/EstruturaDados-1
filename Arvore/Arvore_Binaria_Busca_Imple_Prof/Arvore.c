@@ -28,7 +28,7 @@ void imprime_em_ordem(pno *t)
         return;
     }
     imprime_em_ordem(&(*t)->esq);
-    printf("\t %d", (*t)->info);
+    printf("\t%d", (*t)->info);
     imprime_em_ordem(&(*t)->dir);
 }
 
@@ -38,7 +38,7 @@ void imprime_pre_ordem(pno *t)
     {
         return;
     }
-    printf("\t %d", (*t)->info);
+    printf("\t%d", (*t)->info);
     imprime_pre_ordem(&(*t)->esq);
     imprime_pre_ordem(&(*t)->dir);
 }
@@ -49,14 +49,18 @@ void imprime_pos_ordem(pno *t)
     {
         return;
     }
-    imprime_pre_ordem(&(*t)->esq);
-    imprime_pre_ordem(&(*t)->dir);
-    printf("\t %d", (*t)->info);
+    imprime_pos_ordem(&(*t)->esq);
+    imprime_pos_ordem(&(*t)->dir);
+    printf("\t%d", (*t)->info);
 }
 
-*pno menor_direita(pno *t)
+pno* menor_direita(pno *t)
 {
-    if ((*t) == NULL || (*t)->esq == NULL)
+    if ((*t) == NULL)
+    {
+        return NULL;
+    }
+    if ((*t)->esq == NULL)
     {
         return t;
     }
@@ -72,15 +76,18 @@ void excluir(pno *t)
     pno *sub = menor_direita(&(*t)->dir);
     if ((*sub) == NULL)
     {
-
+        (*sub) = (*t);
+        (*t) = (*t)->esq;
+        free(*sub);
+        *sub = NULL;
+        return;
     }
-    else
+    (*t)->info = (*sub)->info;
+    if ((*sub)->esq == NULL && (*sub)->dir == NULL)
     {
-        (*t)->info = (*sub)->info;
-        if ((*sub)->esq == NULL && (*sub)->dir == NULL)
-        {
-
-        }
+        free(*sub);
+        *sub = NULL;
+        return;
     }
+    excluir(sub);
 }
-

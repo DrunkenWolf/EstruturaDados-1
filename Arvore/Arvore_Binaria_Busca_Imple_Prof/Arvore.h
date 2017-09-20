@@ -11,6 +11,11 @@ typedef struct no_arvore
     struct no_arvore *dir;
 } NO, *pno;
 
+//prototipação
 
+void inserir(pno*, int);
+void imprime_em_ordem(pno*);
+void imprime_pre_ordem(pno*);
+void imprime_pos_ordem(pno*);
 
 #endif // ARVORE_H_INCLUDED
