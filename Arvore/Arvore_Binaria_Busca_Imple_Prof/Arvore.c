@@ -54,5 +54,33 @@ void imprime_pos_ordem(pno *t)
     printf("\t %d", (*t)->info);
 }
 
+*pno menor_direita(pno *t)
+{
+    if ((*t) == NULL || (*t)->esq == NULL)
+    {
+        return t;
+    }
+    return menor_direita(&(*t)->esq);
+}
 
-//excluir
+void excluir(pno *t)
+{
+    if ((*t) == NULL)
+    {
+        return;
+    }
+    pno *sub = menor_direita(&(*t)->dir);
+    if ((*sub) == NULL)
+    {
+
+    }
+    else
+    {
+        (*t)->info = (*sub)->info;
+        if ((*sub)->esq == NULL && (*sub)->dir == NULL)
+        {
+
+        }
+    }
+}
+
