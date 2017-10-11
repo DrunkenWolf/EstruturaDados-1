@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1507756171 source:c:\users\a120121\desktop\estruturadados\arvore\avl\main.c
+	"AVL.h"
+
+1507755932 c:\users\a120121\desktop\estruturadados\arvore\avl\avl.h
+	<stdio.h>
+	<stdlib.h>
+
+1507756439 source:c:\users\a120121\desktop\estruturadados\arvore\avl\avl.c
+	"AVL.h"
+
