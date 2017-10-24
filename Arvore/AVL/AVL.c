@@ -48,7 +48,6 @@ void imprime_pre_ordem_altura(pno *t)
     imprime_pre_ordem_altura(&(*t)->dir);
 }
 
-
 void imprime_em_ordem(pno *t)
 {
     if((*t)==NULL) return;
@@ -56,7 +55,6 @@ void imprime_em_ordem(pno *t)
     printf("\t%d", (*t)->info);
     imprime_em_ordem(&(*t)->dir);
 }
-
 
 void imprime_pos_ordem(pno *t)
 {
@@ -66,13 +64,10 @@ void imprime_pos_ordem(pno *t)
     printf("\t%d", (*t)->info);
 }
 
-
-
 void inicializa(pno *t)
 {
     *t=NULL;
 }
-
 
 pno *minimo(pno *T) // procura o n� com valor m�nimo
 {
@@ -131,26 +126,78 @@ void remover(pno *raiz, int valor)
 
 int calcula_altura(pno *t)
 {
-    if (*t == NULL)
+    if((*t) == NULL)
     {
         return 0;
     }
-    int filho_esq = calcula_altura(&(*t)->esq);
-    int filho_dir = calcula_altura(&(*t)->dir);
-    if (filho_dir > filho_esq)
+    int alt_esq = calcula_altura(&(*t)->esq);
+    int alt_dir = calcula_altura(&(*t)->dir);
+    (*t)->altura = alt_esq > alt_dir? alt_esq + 1: alt_dir + 1;
+}
+
+void balanceamento_AVL(pno *t)
+{
+    if ((*t)->fat_bal > 1) //subarvore esquerda
     {
-        return filho_dir + 1;
+        if ((*t)->esq->fat_bal > 0)
+        {
+            //rotacao simples direita
+        }
+        else
+        {
+            //rotacao dupla direita
+        }
     }
-    else
+    else //subarvore direita
     {
-        return filho_esq + 1;
+        if ((*t)->dir->fat_bal < 0)
+        {
+            //rotacao simples esquerda
+        }
+        else
+        {
+            //rotacao dupla esquerda
+        }
     }
 }
 
+void atualiza_fator_balanceamento(pno *t)
+{
+    if ((*t) == NULL)
+    {
+        return;
+    }
+    if ((*t)->esq != NULL)
+    {
+        atualiza_fator_balanceamento(&(*t)->esq);
+    }
+    if ((*t)->dir != NULL)
+    {
+        atualiza_fator_balanceamento(&(*t)->dir);
+    }
+    if ((*t)->esq == NULL)
+    {
+        (*t)->fat_bal = 0;
+    }
+    else
+    {
+        (*t)->fat_bal = (*t)->esq->fat_bal;
+    }
+    if ((*t)->dir != NULL)
+    {
+        (*t)->fat_bal = (*t)->fat_bal - (*t)->dir->fat_bal;
+    }
+    if ((*t)->fat_bal > 1 || (*t)->fat_bal < -1)
+    {
+        balanceamento_AVL(&(*t));
+        calcula_altura(&(*t));
+    }
+}
 
 void AVL(pno *t)
 {
     (*t)->altura = calcula_altura(&(*t));
+    atualiza_fator_balanceamento(&(*t));
     imprime_pre_ordem_altura(&(*t));
     printf("\n");
     getchar();

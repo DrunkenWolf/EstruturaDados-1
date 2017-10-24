@@ -9,6 +9,7 @@ typedef struct no_arvore{
   struct no_arvore *dir;
   int info;
   int altura;
+  int fat_bal;
 }NO, *pno;
 
 #endif // AVL_H_INCLUDED
