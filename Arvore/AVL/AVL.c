@@ -135,6 +135,24 @@ int calcula_altura(pno *t)
     (*t)->altura = alt_esq > alt_dir? alt_esq + 1: alt_dir + 1;
 }
 
+void RSD(pno *t)
+{
+    pno aux = (*t)->esq->dir;
+    pno aux_t = (*t)->esq;
+    (*t)->esq->dir = (*t);
+    (*t)->esq = aux;
+    (*t) = aux_t;
+}
+
+void RSE(pno *t)
+{
+    pno aux = (*t)->dir->esq;
+    pno aux_t = (*t)->dir;
+    (*t)->dir->esq = (*t);
+    (*t)->dir = aux;
+    (*t) = aux_t;
+}
+
 void balanceamento_AVL(pno *t)
 {
     if ((*t)->fat_bal > 1) //subarvore esquerda
@@ -142,10 +160,13 @@ void balanceamento_AVL(pno *t)
         if ((*t)->esq->fat_bal > 0)
         {
             //rotacao simples direita
+            RSD(&(*t));
         }
         else
         {
             //rotacao dupla direita
+            RSE(&(*t)->esq);
+            RSD(&(*t));
         }
     }
     else //subarvore direita
@@ -153,10 +174,13 @@ void balanceamento_AVL(pno *t)
         if ((*t)->dir->fat_bal < 0)
         {
             //rotacao simples esquerda
+            RSE(&(*t));
         }
         else
         {
             //rotacao dupla esquerda
+            RSD(&(*t)->dir);
+            RSE(&(*t));
         }
     }
 }
